@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Dark Mode Toggle Feature Demo - Accessible theme switching" />
+    <title>Dark Mode Toggle Demo</title>
+    
+    <!-- Preload theme to prevent flash -->
+    <script>
+      // Apply saved theme immediately to prevent flash of incorrect theme
+      (function() {
+        try {
+          const savedTheme = localStorage.getItem('darkModePreference');
+          const isDarkMode = savedTheme ? JSON.parse(savedTheme) : false;
+          
+          if (isDarkMode) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.classList.add('dark-theme');
+          } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.classList.add('light-theme');
+          }
+        } catch (error) {
+          // Default to light theme if there's an error
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.documentElement.classList.add('light-theme');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
