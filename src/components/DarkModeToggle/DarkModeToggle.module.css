@@ -59,9 +59,20 @@
 }
 
 .toggle-icon {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   transition: all 0.3s ease-in-out;
+  color: var(--icon-color);
+  fill: currentColor;
+}
+
+/* Icon colors */
+.toggle-thumb.light .toggle-icon {
+  color: #f59e0b; /* Orange/yellow for sun */
+}
+
+.toggle-thumb.dark .toggle-icon {
+  color: #e2e8f0; /* Light color for moon */
 }
 
 /* Screen reader only text */
@@ -85,6 +96,7 @@
   --light-thumb-bg: #ffd700;
   --dark-thumb-bg: #4a5568;
   --focus-color: #007acc;
+  --icon-color: #374151;
 }
 
 /* Dark theme variables */
@@ -95,6 +107,7 @@
   --light-thumb-bg: #ffd700;
   --dark-thumb-bg: #e2e8f0;
   --focus-color: #63b3ed;
+  --icon-color: #f7fafc;
 }
 
 /* High contrast mode support */
@@ -105,6 +118,11 @@
   
   .dark-mode-toggle:focus {
     box-shadow: 0 0 0 3px var(--focus-color);
+  }
+
+  .toggle-icon {
+    stroke: currentColor;
+    stroke-width: 1px;
   }
 }
 
